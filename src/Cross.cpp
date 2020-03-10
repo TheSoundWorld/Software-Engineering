@@ -44,24 +44,16 @@ int main(int argc,const char* argv[])
 long long Cross::getDifCrossDotsNum(vector<line> lines)
 {
 	
-	long long cnt = 0;
+	
 	for (unsigned int i = 0; i < lines.size() - 1; i++) {
 		for (unsigned int  j = i + 1; j < lines.size(); j++) {
 			dot* d = lines[i].cross(lines[j]);
 			if (d != NULL) {
-				dots.push_back(*d);
+				dots.insert(*d);
 				delete d;
 			}
 		}
 	}
-	for (unsigned int i = 0; i < dots.size(); i++) {
-		unsigned int j = 0;
-		for (; j < i; j++) {
-			if (dots[i].equal(dots[j]))break;
-		}
-		if (j == i) {
-			cnt++;
-		}
-	}
-	return cnt;
+	
+	return dots.size();
 }

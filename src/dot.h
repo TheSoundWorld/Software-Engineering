@@ -1,4 +1,5 @@
 #pragma once
+#include<set>
 class dot {
 public:
 	long long x_top;
@@ -8,8 +9,8 @@ public:
 
 	dot(long long x_top, long long x_bottom, long long y_top, long long y_bottom);
 		
-	bool equal(dot d);
 	
 	
+	bool operator <(const  dot& d)const;
 
 };

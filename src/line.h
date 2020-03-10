@@ -1,5 +1,6 @@
 #pragma once
 #include"dot.h"
+
 class line {
 public:
 	long long A;
