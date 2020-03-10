@@ -9,13 +9,13 @@ dot::dot(long long x_top, long long x_bottom, long long y_top, long long y_botto
 	this->y_bottom = y_bottom;
 }
 
-bool dot::operator <(const  dot& d)const
+bool dot::operator<(const  dot& d)const
 {
 	if (x_top * d.x_bottom == x_bottom * d.x_top &&
 		y_top * d.y_bottom == y_bottom * d.y_top) {
-		return true;
+		return false;
 	}
 	else {
-		return false;
+		return (x_top < d.x_top);
 	}
 }
