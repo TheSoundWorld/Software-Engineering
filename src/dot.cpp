@@ -11,11 +11,12 @@ dot::dot(long long x_top, long long x_bottom, long long y_top, long long y_botto
 
 bool dot::operator<(const  dot& d)const
 {
-	if (x_top * d.x_bottom == x_bottom * d.x_top &&
-		y_top * d.y_bottom == y_bottom * d.y_top) {
-		return false;
+
+	if (x_top * d.x_bottom != x_bottom * d.x_top) {
+		return x_top * d.x_bottom < x_bottom * d.x_top;
 	}
 	else {
-		return (x_top < d.x_top);
+		return y_top * d.y_bottom < y_bottom * d.y_top;
 	}
+	
 }

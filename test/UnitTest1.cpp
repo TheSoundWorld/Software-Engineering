@@ -16,7 +16,7 @@ namespace UnitTest1
 		{
 			dot* d1 = new dot(1, 2, 1, 2);
 			dot* d2 = new dot(2, 4, 2, 4);
-			Assert::IsTrue(d1->equal(*d2));
+			Assert::IsFalse(d1->operator <(*d2));
 		}
 		TEST_METHOD(TestMethod2)
 		{
@@ -36,6 +36,31 @@ namespace UnitTest1
 			Cross* cross = new Cross();
 			Assert::AreEqual(cross->getDifCrossDotsNum(lines),long long(3));
 			
+		}
+		TEST_METHOD(TestMethod4)
+		{
+			line l1(1, 1, 2, 3);
+			vector<line> lines;
+			lines.push_back(l1);			
+			Cross* cross = new Cross();
+			Assert::AreEqual(cross->getDifCrossDotsNum(lines), long long(0));
+
+		}
+
+		TEST_METHOD(TestMethod5)
+		{
+			line l1(100000, 0, 0, 100000);
+			line l2(-100000, 0, 0, 100000);
+			line l3(-100000, 0, 0, -100000);
+			line l4(100000, 0, 0, -100000);
+			vector<line> lines; 
+			lines.push_back(l1);
+			lines.push_back(l2);
+			lines.push_back(l3);
+			lines.push_back(l4);
+			Cross* cross = new Cross();
+			Assert::AreEqual(cross->getDifCrossDotsNum(lines), long long(4));
+
 		}
 	};
 }
